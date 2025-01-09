@@ -1,0 +1,137 @@
+/* Styles généraux pour le corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Styles pour les containers principaux */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour les titres */
+h1, h2 {
+    color: #7e7c7c;
+}
+
+/* Styles pour les zones de texte (formulaires) */
+textarea {
+    width: 100%;
+    max-width: 500px;
+    height: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+    resize: vertical;
+}
+
+/* Styles pour les messages d'erreur et de succès */
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.success {
+    color: green;
+    font-weight: bold;
+}
+
+/* Styles pour les liens */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Styles pour les boutons */
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Styles spécifiques pour le bouton "Retour à l'accueil" */
+.return-home-btn {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #17a2b8; /* Couleur bleu clair */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.return-home-btn:hover {
+    background-color: #138496; /* Couleur bleu foncé au survol */
+}
+
+/* Styles pour la navbar en haut de page */
+.navbar {
+    background-color: #343a40;
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+}
+
+.navbar h1 {
+    margin: 0;
+}
+
+/* Styles pour la liste des messages dans le guestbook */
+main.container {
+    margin-top: 30px;
+}
+
+main.container div {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+main.container div:last-child {
+    border-bottom: none;
+}
+
+strong {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Styles pour les boutons de connexion, déconnexion et inscription */
+.navbar p a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.navbar p a:hover {
+    text-decoration: underline;
+}
+
+/* Ajout d'un peu d'espace et amélioration de l'apparence des liens dans la navbar */
+.navbar p {
+    margin: 10px 0;
+}

@@ -1,0 +1,64 @@
+Pour créer la base de données, nous avons besoin de 2 tables 1 qui gere les messages et l'autres les comptes utilisateurs.
+
+Commande pour créer la BDD requise:
+
+CREATE DATABASE flashcarsbdd;
+
+USE flashcarsbdd;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Vehicules (
+    VehiculeID INT AUTO_INCREMENT PRIMARY KEY, -- Identifiant unique pour chaque véhicule
+    Marque VARCHAR(50) NOT NULL,              -- Marque de la voiture (e.g., Toyota)
+    Modele VARCHAR(50) NOT NULL,              -- Modèle de la voiture (e.g., Corolla)
+    Annee INT NOT NULL,                       -- Année de fabrication
+    Prix DECIMAL(10, 2) NOT NULL,             -- Prix de la voiture
+    Quantite INT NOT NULL,                    -- Quantité disponible en stock
+    Statut ENUM('Disponible', 'Vendu') DEFAULT 'Disponible', -- Statut du véhicule
+    DateAjout TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Date d'ajout au stock
+);
+
+-- Requête pour afficher les véhicules disponibles
+SELECT * FROM Vehicules WHERE Statut = 'Disponible';
+
+-- Mise à jour du stock après une vente (exemple pour la Toyota Corolla)
+UPDATE Vehicules
+SET Quantite = Quantite - 1
+WHERE VehiculeID = 1 AND Quantite > 0;
+
+-- Si un véhicule est épuisé, changer son statut
+UPDATE Vehicules
+SET Statut = 'Vendu'
+WHERE VehiculeID = 1 AND Quantite = 0;
+
+-- Supprimer un véhicule qui n'est plus en vente
+DELETE FROM Vehicules WHERE VehiculeID = 3;
+
+Insertion de données
+
+INSERT INTO Vehicules (Marque, Modele, Annee, Prix, Quantite)
+VALUES
+('Mclaren', 'Artura', 2023, 235000.00, 2),
+('Audi', 'S3', 2024, 80000.00, 7),
+('Bmw', 'M340i', 2022, 120000.00, 5),
+('Mercedes', 'AMG GT', 2023, 150000.00, 4),
+('Alfa Romeo', 'TONALE', 2023, 42000.00, 6),
+('Porsche', 'GT3RS', 2018, 200000.00, 1),
+('Lamborghini', 'Huracan', 2023, 275000.00, 3),
+('Bugatti', 'Chiron', 2023, 4000000.00, 1),
+('Alpine', 'a110', 2018, 70000.00, 9),
+('Renault', 'Twingo', 2007, 15000.00, 12);
+
+Comme j'ai oublier de mettre les photos des voitures j'ai donc réexecuter a nouveau du code 
+
+ALTER TABLE Vehicules ADD Photo VARCHAR(255);
+
+Pour la partie git, il faut:
+
+git init 
+git remote add origin https://github.com/nathanbch/Flashcars.git
