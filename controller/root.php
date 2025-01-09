@@ -20,7 +20,9 @@ switch ($page) {
     case 'achat':
         include 'view/affichage_vehicules.php';
         break;
-
+    case 'panier':
+        include 'view/panier.php';
+        break;
     default:
         include 'view/404.php';
 }
