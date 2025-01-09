@@ -1,6 +1,7 @@
 <?php
 // Démarrage de la session
 session_start();
+include_once 'root.php';
 
 // Connexion à la base de données
 require 'config.php';
@@ -100,17 +101,19 @@ h2 {
             <?php if (isset($_SESSION['username'])) : ?>
                 <p>
                     Bienvenue, <?php echo htmlspecialchars($_SESSION['username']); ?> |
-                    <a href="logout.php">Déconnexion</a>
+                    <a href="index.php?page=deconnexion">Déconnexion</a> |
+                    <a href="index.php?page=accueil">Accueil</a>
+
                 </p>
             <?php else : ?>
                 <p>
-                    <a href="login.php">Connexion</a> | 
-                    <a href="register.php">Inscription</a>
+                    <a href="index.php?page=connexion">Connexion</a> | 
+                    <a href="index.php?page=inscription">Inscription</a>
                 </p>
             <?php endif; ?>
         </nav>
     </header>
-    <main class="container">
+        <main class="container">
     <h2>Voitures Disponibles</h2>
     <?php if (count($voitures) > 0): ?>
         <div class="car-grid">
@@ -125,13 +128,18 @@ h2 {
                     <p><strong>Année :</strong> <?php echo htmlspecialchars($voiture['Annee']); ?></p>
                     <p><strong>Prix :</strong> <?php echo number_format($voiture['Prix'], 2); ?> €</p>
                     <p><strong>Quantité disponible :</strong> <?php echo htmlspecialchars($voiture['Quantite']); ?></p>
+                    <!-- Bouton acheter si l'utilisateur est connecté -->
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <button onclick="location.href='index.php?page=achat&voiture_id=<?php echo $voiture['id']; ?>'" class="buy-btn">Acheter</button>
+                    <?php endif; ?>
                 </div>                
             <?php endforeach; ?>
-            </div>
-        <?php else: ?>
-            <p>Aucune voiture disponible pour le moment.</p>
-        <?php endif; ?>
+        </div>
+    <?php else: ?>
+        <p>Aucune voiture disponible pour le moment.</p>
+    <?php endif; ?>
+    </main>
+        </div>
     </main>
 </body>
 </html>
-

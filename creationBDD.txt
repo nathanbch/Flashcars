@@ -62,3 +62,25 @@ Pour la partie git, il faut:
 
 git init 
 git remote add origin https://github.com/nathanbch/Flashcars.git
+git remote -v
+git add .
+git commit -m "commit original"
+git push -u origin main
+
+# Initialisation du dépôt Git (si nécessaire)
+git init
+
+# Vérifier la branche actuelle
+git branch
+
+# Créer une nouvelle branche
+git checkout -b nomducommit
+
+# Ajouter les fichiers
+git add .
+
+# Faire un commit
+git commit -m "Ajout de l'affichage des voitures disponibles avec le style CSS"
+
+# Pousser la branche vers le dépôt distant
+git push origin nomducommit

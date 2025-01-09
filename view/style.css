@@ -16,6 +16,30 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Conteneur centré pour le bouton d'achat */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px); /* 100% de la hauteur moins la hauteur du header */
+    text-align: center;
+}
+
+/* Bouton centré */
+.center-btn {
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.center-btn:hover {
+    background-color: #0056b3;
+}
+
 /* Styles pour les titres */
 h1, h2 {
     color: #7e7c7c;

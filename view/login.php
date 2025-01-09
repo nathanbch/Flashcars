@@ -1,10 +1,11 @@
 <?php
 session_start();
 require 'config.php'; // Connexion à la base de données
+include_once 'root.php';
 
 // Vérifier si l'utilisateur est déjà connecté
 if (isset($_SESSION['username'])) {
-    echo "Vous êtes déjà connecté ! <a href='logout.php'>Déconnexion</a>";
+    echo "Vous êtes déjà connecté ! <a href='index.php?page=deconnexion'>Déconnexion</a>";
     exit();
 }
 
@@ -23,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (password_verify($password, $user['password'])) {
             $_SESSION['username'] = $user['username'];
             $_SESSION['user_id'] = $user['id']; // Stockage de l'ID dans la session
-            header('Location: index.php');
+            header('Location: index.php?page=achat');
             exit();
         } else {
             echo "Mot de passe incorrect.";
@@ -44,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <h1>Connexion</h1>
-    <form method="POST" action="login.php">
+    <form method="POST" action="index.php?page=connexion">
         <input type="text" name="username" placeholder="Nom d'utilisateur" required>
         <br>
         <br>
@@ -52,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <br>
         <br>
         <button type="submit">Se connecter</button>
-        <a href="index.php">Retour à l'accueil</a>
+        <a href="index.php?page=achat">Retour à l'accueil</a>
     </form>
 </body>
 </html>

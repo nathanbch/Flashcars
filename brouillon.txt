@@ -1,0 +1,28 @@
+<?php
+$page = isset($_GET['page']) ? $_GET['page'] : 'accueil';
+
+switch ($page) {
+    case 'accueil':
+        include 'index.php';
+        break;
+        
+    case 'inscription':
+        include 'register.php';
+        break;
+
+    case 'connexion':
+        include 'login.php';
+        break;
+
+    case 'deconnexion':
+        include 'logout.php';
+        break;
+
+    case 'achat':
+        include 'affichage_vehicules.php';
+        break;
+
+    default:
+        include '404.php';
+}
+?>

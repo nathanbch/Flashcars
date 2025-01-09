@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'config.php';
+include_once 'root.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username']);
