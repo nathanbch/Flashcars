@@ -128,11 +128,10 @@ h2 {
                     <p><strong>Année :</strong> <?php echo htmlspecialchars($voiture['Annee']); ?></p>
                     <p><strong>Prix :</strong> <?php echo number_format($voiture['Prix'], 2); ?> €</p>
                     <p><strong>Quantité disponible :</strong> <?php echo htmlspecialchars($voiture['Quantite']); ?></p>
-                    <!-- Bouton acheter si l'utilisateur est connecté -->
                     <?php if (isset($_SESSION['username'])): ?>
-                        <button onclick="location.href='index.php?page=achat&voiture_id=<?php echo $voiture['id']; ?>'" class="buy-btn">Acheter</button>
+                        <button onclick="location.href='index.php?page=achat&voiture_id=<?php echo $voiture['id']; ?>'"class="buy-btn">Acheter</button>
                     <?php endif; ?>
-                </div>                
+                </div>
             <?php endforeach; ?>
         </div>
     <?php else: ?>
